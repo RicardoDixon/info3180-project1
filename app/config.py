@@ -4,8 +4,9 @@ class Config(object):
     """Base Config Object"""
     DEBUG = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'Som3$ec5etK*y'
-    #SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://yourusername:yourpassword@localhost/databasename'
-    #SQLALCHEMY_TRACK_MODIFICATIONS = False # This is just here to suppress a warning from SQLAlchemy as it will soon be removed
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://user:password@localhost/property'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False # This is just here to suppress a warning from SQLAlchemy as it will soon be removed
+    UPLOAD_FOLDER = os.environ['UPLOAD_FOLDER'] or './uploads' 
 
 class DevelopmentConfig(Config):
     """Development Config that extends the Base Config Object"""
@@ -15,3 +16,6 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     """Production Config that extends the Base Config Object"""
     DEBUG = False
+
+
+

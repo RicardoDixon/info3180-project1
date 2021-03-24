@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main%}
+{% include "flash_messages.html"%}
+
+<div class="prop-container ">
+    <h1 class="title2">Properties</h1>
+	<div class="paddding">
+	<div class="grid-container">
+	
+    {% for p in properties %}
+    <div class="prop ">
+        <image src="{{ url_for('get_image', filename=p['photo']) }}" class="display-grid-pic">
+        <div class="text-paddding">
+		<div class="margin">
+            <span class="headr ">{{ p['title'] }}</span>
+			</div>
+			<div >			
+            <span class="faide">{{ p['location'] }}</span> 
+			</div>
+			<div class="margin-top">
+            <span class="btn-style">{{ p['price'] }}</span>
+			</div>
+        </div>
+		<div class="view-btn" >
+            <a class="" href="{{ url_for('i_property', propertyid=p['id']) }}">View Property</a>
+        </div>
+ </div>
+    {% endfor %}
+	</div>
+		</div>
+</div>
+{% endblock%}

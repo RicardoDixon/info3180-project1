@@ -1,18 +1,9 @@
 {% extends "base.html" %}
 
-{% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-{% endblock %}
-
 {% block main %}
-<div class="jumbotron">
-  <div class="container">
-    <h1>Hello, world!</h1>
-    <p>This is a simple starter template for a Flask Application</p>
-  </div>
-</div>
-{% endblock %}
+<h1 class="page-header">INFO3180 Project 1</h1>
+{% include 'flash_messages.html' %}
 
-{% block js %}
-<script src="{{ url_for('static', filename='js/app.min.js') }}" charset="utf-8"></script>
+<p class="lead">This project can accept and display profile information.</p>
+<p class="lead"> and This project follow the flask base application.</p>
 {% endblock %}

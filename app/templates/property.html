@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block css %}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+<div class="space">
+<div class="ind-prop Row">
+		<div class="">
+        <img class="prop_pic"   src="{{ url_for('get_image', filename = pH.photo) }}"/>
+        </div>
+		<div class="text-paddding2">
+			<span class="ind-headr ">{{pH.title}}</span>
+            <div class="Row margin-top{">
+			<span class="btn-style2 blk">{{pH.price}}</span>
+			<span class="blk btn-style3 margin-left">{{pH.ptype}}</span>
+             </div>
+			<span class="blk margin-top text-box">{{pH.description}}</span>
+			<div class="Row margin-top2 ">
+			<span class="blk">{{pH.number_of_bedrooms}} bedrooms</span>
+            <span class="blk margin-left">{{pH.number_of_bathrooms}} bathrooms</span>
+             </div>
+			<span class="blk margin-top2">{{pH.location}}</span>
+		<div class="margin-top2 view-btn2 color margin-bottom">	
+        <a href="#" class="color">Send Realtor</a>
+		</div>
+	   </div>
+    
+</div>
+</div>
+{% endblock %}

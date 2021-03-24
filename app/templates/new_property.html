@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+{% include "flash_messages.html" %}
+<div><div class="inline">
+ <h1 class="title" >Add New property</h1> 
+   </div>
+<div class="forms-con border">
+   
+    <form method = "POST" action="{{ url_for('property') }}" enctype="multipart/form-data">
+        {{PptyForm.csrf_token}}
+        <div class="contain">
+            {{PptyForm.title.label(class="block")}}
+            {{PptyForm.title(class="field col-md-8")}}
+        </div>
+        <div class="contain ">
+            {{PptyForm.description.label(class="block")}}
+            {{PptyForm.description(class="field col-md-8")}}
+        </div>
+		<div class="Row">
+        <div class="contain column s-ctn ">
+            {{PptyForm.number_of_bedrooms.label(class="block")}}
+            {{PptyForm.number_of_bedrooms(class="field  col-md-8")}}
+        </div>
+        <div class="contain column s-ctn ">
+            {{PptyForm.number_of_bathrooms.label(class="block")}}
+            {{PptyForm.number_of_bathrooms(class="field  col-md-8")}}
+        </div>
+		
+		  </div>
+		  <div class="Row">
+        <div class="contain column s-ctn  ">
+            {{PptyForm.price.label(class="block")}}
+            {{PptyForm.price(placeholder="eg. Kingston, Jamaica", class="field col-md-8")}}
+        </div>
+		<div class="contain column s-ctn ">
+            {{PptyForm.location.label(class="block")}}
+            {{PptyForm.location(placeholder="eg. Kingston, Jamaica", class="field col-md-8")}}
+        </div>
+		</div>
+        <div class="contain s-ctn">
+            {{PptyForm.ptype.label(class="block")}}
+            {{PptyForm.ptype(class="field col-md-8")}}
+        </div>
+        <div class="contain">
+            {{PptyForm.photo.label(class="block")}}
+            {{PptyForm.photo(class="field col-md-8")}}
+        </div>
+        <div class="contain">
+            <input type="submit" value="Add Property" class="btn-container"/>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}
